@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -191,6 +191,7 @@ const BuddySystemMemoryAllocator = () => {
           <CardTitle className="flex items-center">
             <MemoryStick className="mr-2" /> Buddy System Memory Allocator
           </CardTitle>
+          <CardDescription className="text-right">The values can be any unit KB, MB or GB </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -269,7 +270,7 @@ const BuddySystemMemoryAllocator = () => {
                 <ul className="space-y-1">
                   {memoryState.freeList.map(({size, blocks}, index) => (
                     <li key={index} className="bg-green-100 p-2 rounded">
-                      Size: {size}, Blocks: {blocks.join(', ')}
+                      Size: {size}, Block start address: {blocks.join(', ')}
                     </li>
                   ))}
                 </ul>
@@ -284,7 +285,7 @@ const BuddySystemMemoryAllocator = () => {
                 <ul className="space-y-1">
                   {memoryState.allocatedBlocks.map(({start, size}, index) => (
                     <li key={index} className="bg-blue-100 p-2 rounded">
-                      Start: {start}, Size: {size}
+                      Start address: {start}, Size: {size}
                     </li>
                   ))}
                 </ul>
